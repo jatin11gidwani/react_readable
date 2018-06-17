@@ -22,6 +22,29 @@
   font-size: large;
 }
 
+.nav-link {
+  color: #ffffff;
+  background: #000;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  padding: 20px;
+  vertical-align: middle;
+  width: 80px;
+  display: inline-block;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.nav-selected {
+  color: green;
+  background: #ffffff;
+}
+
+.button {
+  width: 100px;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
