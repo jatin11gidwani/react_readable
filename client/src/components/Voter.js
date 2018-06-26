@@ -1,17 +1,18 @@
-
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { updateVote } from './../actions/index'
 import './App.css'
 
 class Voter extends Component {
   render() {
     return (
       <div>
-        <button className="button">
+        <button className="button" onClick={() => this.props.updateVote(this.props.postId, -1)}>
         {/* //onClick={() => this.props.dosomething()}> */}
         -1 vote
         </button>
-        <p> Count</p>
-        <button className="button">
+        <p>{this.props.count}</p>
+        <button className="button" onClick={() => this.props.updateVote(this.props.postId, 1)}>
         +1 vote
         </button>  
       </div>
@@ -19,4 +20,4 @@ class Voter extends Component {
   }
 }
 
-export default Voter
+export default connect(null, { updateVote })(Voter)
