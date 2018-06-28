@@ -43,10 +43,13 @@ class DisplayPosts extends Component {
         var formatted = t.toDateString()
         return (
           <div key={post.id}>
-        <p>{post.title}</p>
-            <p>By {post.author} on {formatted} </p>
+          
+            <Link to={`/posts/${post.id}`}>
+            <p>{post.title}</p>
+            </Link>
+            <p>By {post.author} on {formatted}</p>
             <p>{post.commentCount} comments</p>
-            <Voter count={post.voteScore} postId={post.id}/>
+            <Voter postId={post.id}/>
             <button className="button">
              {/* onClick={() => this.props.dosomething()}> */}
              Edit Post
