@@ -1,8 +1,7 @@
 import _ from 'lodash'
 import { FETCH_POSTS, UPDATE_VOTE, DELETE_POST, CREATE_POST, EDIT_POST } from './../actions/index'
-import { bindActionCreators } from 'C:/Users/SKOOP/AppData/Local/Microsoft/TypeScript/2.9/node_modules/redux';
 
-export default function postsReducer(state = [], action) {
+export default function postsReducer(state = {}, action) {
     var newState = {}
     var result = []
     switch(action.type) {
