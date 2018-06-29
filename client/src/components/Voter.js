@@ -5,24 +5,31 @@ import './App.css'
 
 class Voter extends Component {
   render() {
-    console.log(this.props.postId,this.props.post.id,this.props.post.voteScore)
+    var post = this.props.posts[this.props.postId]
+    console.log(this.props.postId,post.id,post.voteScore)
     return (
       <div>
-        <button className="button" onClick={() => this.props.updateVote(this.props.post.id, -1)}>
+        <button className="button" onClick={() => this.props.updateVote(post.id, -1)}>
         {/* //onClick={() => this.props.dosomething()}> */}
-        -1 vote
+          -1 vote
         </button>
-        <p>{this.props.post.voteScore}</p>
-        <button className="button" onClick={() => this.props.updateVote(this.props.post.id, 1)}>
-        +1 vote
+        <p>{post.voteScore}</p>
+        <button className="button" onClick={() => this.props.updateVote(post.id, +1)}>
+          +1 vote
         </button>  
       </div>
     );
   }
 }
 
-function mapStateToProps({ posts}, ownProps) {
-  return { post: posts[ownProps.postId]}
+function mapStateToProps(state, ownProps) {
+  return { posts: state.posts}
 }
 
-export default connect(mapStateToProps, { updateVote })(Voter)
+function mapDispatchToProps(dispatch) {
+  return {
+    updateVote: (id, value) => dispatch(updateVote(id,value))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Voter)

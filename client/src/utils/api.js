@@ -44,7 +44,6 @@ export const deletePost = (id) =>
     headers: { ...headers }
   }).then(res => res.json)
 
-
 export const createPost = (body) =>
   fetch(`${api}/posts`, {
     method: 'POST',
@@ -54,8 +53,6 @@ export const createPost = (body) =>
     },
     body: JSON.stringify(body)
   }).then(res => res.json)
-
-
 
 export const editPost = (id, body) =>
   fetch(`${api}/posts/${id}`, {
